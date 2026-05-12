@@ -1,0 +1,34 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Metavision / OpenEB – Event-based camera RAW data reading
+#
+# OpenEB (open-source Metavision SDK) must be installed first.
+# Follow the official guide: https://github.com/prophesee-ai/openeb
+#
+# After building & installing OpenEB, the metavision_* packages below
+# are registered automatically. You can also install the pre-built wheels:
+#   pip install metavision-core metavision-hal metavision-sdk-base
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Core Metavision SDK packages (installed via OpenEB or pip install event-camera-drivers)
+metavision-core          # EventsIterator, RawReader — high-level event I/O
+metavision-hal           # DeviceDiscovery, RawFileConfig — low-level HAL API
+metavision-sdk-base      # EventCD, EventExtTrigger — base event types
+metavision-sdk-core      # SharedCdEventsBufferProducer and core utilities
+# metavision-sdk-stream  # CameraStreamSlicer, Camera — modern stream API (full SDK only)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Scientific / numeric stack
+# ─────────────────────────────────────────────────────────────────────────────
+numpy>=1.21.0            # Event arrays are numpy structured arrays (x, y, p, t)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Visualization (optional but commonly used alongside event reading)
+# ─────────────────────────────────────────────────────────────────────────────
+opencv-python>=4.5.0     # Frame display, event-frame rendering (cv2.imshow etc.)
+matplotlib>=3.4.0        # Plotting event streams, histograms, scatter plots
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Data handling (optional)
+# ─────────────────────────────────────────────────────────────────────────────
+h5py>=3.1.0              # Read/write HDF5 event files (alternative to RAW)
+pandas>=1.3.0            # Tabular event analysis (DataFrame from numpy arrays)
